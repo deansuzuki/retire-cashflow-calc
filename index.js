@@ -6,10 +6,10 @@
 
 // Application State
 const state = {
-  assetsBrokerage: 300000,
+  assetsBrokerage: 100000,
   brokerageCostBasis: 60.0,
-  assetsPreTax: 500000,
-  assetsRoth: 200000,
+  assetsPreTax: 300000,
+  assetsRoth: 100000,
   clientAge: 55,
   appreciationRate: 6.0,
   inflationRate: 2.5,
@@ -131,64 +131,66 @@ const STATE_TAX_DATA = {
   "WY": { name: "Wyoming", type: "none" }
 };
 
-// UI Elements
+// UI Elements (Using ES6 dynamic getters to prevent early null evaluation prior to DOMContentLoaded)
 const els = {
-  brokerageText: document.getElementById('brokerage-text'),
-  brokerageSlider: document.getElementById('brokerage-slider'),
-  basisText: document.getElementById('basis-text'),
-  basisSlider: document.getElementById('basis-slider'),
-  btnBasisDefault: document.getElementById('btn-basis-default'),
-  pretaxText: document.getElementById('pretax-text'),
-  pretaxSlider: document.getElementById('pretax-slider'),
-  rothText: document.getElementById('roth-text'),
-  rothSlider: document.getElementById('roth-slider'),
+  get brokerageText() { return document.getElementById('brokerage-text'); },
+  get brokerageSlider() { return document.getElementById('brokerage-slider'); },
+  get basisText() { return document.getElementById('basis-text'); },
+  get basisSlider() { return document.getElementById('basis-slider'); },
+  get btnBasisDefault() { return document.getElementById('btn-basis-default'); },
+  get pretaxText() { return document.getElementById('pretax-text'); },
+  get pretaxSlider() { return document.getElementById('pretax-slider'); },
+  get rothText() { return document.getElementById('roth-text'); },
+  get rothSlider() { return document.getElementById('roth-slider'); },
   
-  ageText: document.getElementById('age-text'),
-  ageSlider: document.getElementById('age-slider'),
-  yearsText: document.getElementById('years-text'),
-  yearsSlider: document.getElementById('years-slider'),
+  get ageText() { return document.getElementById('age-text'); },
+  get ageSlider() { return document.getElementById('age-slider'); },
+  get yearsText() { return document.getElementById('years-text'); },
+  get yearsSlider() { return document.getElementById('years-slider'); },
   
   // Tax Selectors & Collapsible Container
-  filingStatus: document.getElementById('filing-status'),
-  stateResidence: document.getElementById('state-residence'),
-  manualTaxContainer: document.getElementById('manual-tax-container'),
+  get filingStatus() { return document.getElementById('filing-status'); },
+  get stateResidence() { return document.getElementById('state-residence'); },
+  get manualTaxContainer() { return document.getElementById('manual-tax-container'); },
   
-  taxOrdinaryText: document.getElementById('tax-ordinary-text'),
-  taxOrdinarySlider: document.getElementById('tax-ordinary-slider'),
-  taxCapgainsText: document.getElementById('tax-capgains-text'),
-  taxCapgainsSlider: document.getElementById('tax-capgains-slider'),
+  get taxOrdinaryText() { return document.getElementById('tax-ordinary-text'); },
+  get taxOrdinarySlider() { return document.getElementById('tax-ordinary-slider'); },
+  get taxCapgainsText() { return document.getElementById('tax-capgains-text'); },
+  get taxCapgainsSlider() { return document.getElementById('tax-capgains-slider'); },
   
-  rateText: document.getElementById('rate-text'),
-  rateSlider: document.getElementById('rate-slider'),
-  inflationText: document.getElementById('inflation-text'),
-  inflationSlider: document.getElementById('inflation-slider'),
+  get rateText() { return document.getElementById('rate-text'); },
+  get rateSlider() { return document.getElementById('rate-slider'); },
+  get inflationText() { return document.getElementById('inflation-text'); },
+  get inflationSlider() { return document.getElementById('inflation-slider'); },
   
-  strategyAmortized: document.getElementById('strategy-amortized'),
-  strategyPreservation: document.getElementById('strategy-preservation'),
-  strategyDescText: document.getElementById('strategy-desc-text'),
+  get strategyAmortized() { return document.getElementById('strategy-amortized'); },
+  get strategyPreservation() { return document.getElementById('strategy-preservation'); },
+  get strategyDescText() { return document.getElementById('strategy-desc-text'); },
   
-  monthlyCashflowValue: document.getElementById('monthly-cashflow-value'),
-  monthlyCashflowSubtext: document.getElementById('monthly-cashflow-subtext'),
-  realCashflowBadge: document.getElementById('real-cashflow-badge'),
-  totalWithdrawnValue: document.getElementById('total-withdrawn-value'),
-  endingBalanceValue: document.getElementById('ending-balance-value'),
-  endingBalanceSubtext: document.getElementById('ending-balance-subtext'),
+  get monthlyCashflowValue() { return document.getElementById('monthly-cashflow-value'); },
+  get monthlyCashflowSubtext() { return document.getElementById('monthly-cashflow-subtext'); },
+  get realCashflowBadge() { return document.getElementById('real-cashflow-badge'); },
+  get totalWithdrawnValue() { return document.getElementById('total-withdrawn-value'); },
+  get endingBalanceValue() { return document.getElementById('ending-balance-value'); },
+  get endingBalanceSubtext() { return document.getElementById('ending-balance-subtext'); },
   
-  scenarioBaselineMetric: document.getElementById('scenario-baseline-metric'),
-  scenarioBaselineBadge: document.getElementById('scenario-baseline-badge'),
-  scenarioEarlybearMetric: document.getElementById('scenario-earlybear-metric'),
-  scenarioEarlybearBadge: document.getElementById('scenario-earlybear-badge'),
-  scenarioLatebearMetric: document.getElementById('scenario-latebear-metric'),
-  scenarioLatebearBadge: document.getElementById('scenario-latebear-badge'),
+  get scenarioBaselineMetric() { return document.getElementById('scenario-baseline-metric'); },
+  get scenarioBaselineBadge() { return document.getElementById('scenario-baseline-badge'); },
+  get scenarioEarlybearMetric() { return document.getElementById('scenario-earlybear-metric'); },
+  get scenarioEarlybearBadge() { return document.getElementById('scenario-earlybear-badge'); },
+  get scenarioLatebearMetric() { return document.getElementById('scenario-latebear-metric'); },
+  get scenarioLatebearBadge() { return document.getElementById('scenario-latebear-badge'); },
   
-  projectionsTableBody: document.getElementById('projections-table-body'),
-  btnCopy: document.getElementById('btn-copy'),
-  btnExport: document.getElementById('btn-export'),
-  chartCanvas: document.getElementById('trajectory-chart')
+  get projectionsTableBody() { return document.getElementById('projections-table-body'); },
+  get btnCopy() { return document.getElementById('btn-copy'); },
+  get btnExport() { return document.getElementById('btn-export'); },
+  get chartCanvas() { return document.getElementById('trajectory-chart'); },
+  get cashflowCanvas() { return document.getElementById('cashflow-chart'); }
 };
 
-// Global Chart Instance
+// Global Chart Instances
 let trajectoryChart = null;
+let cashflowChart = null;
 
 // Financial Math Helpers
 const formatCurrency = (val) => {
@@ -360,10 +362,15 @@ function runPortfolioSimulation(startingNetMonthly, isPreservation = false) {
     begBrokerage: balB,
     begPreTax: balP,
     begRoth: balR,
+    drawBrokerage: 0,
+    drawPreTax: 0,
+    drawRoth: 0,
     growthEarned: 0,
     netWithdrawn: 0,
     grossWithdrawn: 0,
     fedTax: 0,
+    fedOrdTax: 0,
+    fedCapGainsTax: 0,
     stateTax: 0,
     niitTax: 0,
     penalty: 0,
@@ -391,10 +398,15 @@ function runPortfolioSimulation(startingNetMonthly, isPreservation = false) {
         begBrokerage: balB,
         begPreTax: balP,
         begRoth: balR,
+        drawBrokerage: 0,
+        drawPreTax: 0,
+        drawRoth: 0,
         growthEarned: 0,
         netWithdrawn: 0,
         grossWithdrawn: 0,
         fedTax: 0,
+        fedOrdTax: 0,
+        fedCapGainsTax: 0,
         stateTax: 0,
         niitTax: 0,
         penalty: 0,
@@ -442,6 +454,7 @@ function runPortfolioSimulation(startingNetMonthly, isPreservation = false) {
         remainingNetNeeded -= draw;
         yearBrokerageGross += draw;
         currentYearData.netWithdrawn += draw;
+        currentYearData.drawBrokerage += draw;
       }
       else if (bucket === 'pretax' && balP > 0) {
         const draw = Math.min(balP, remainingNetNeeded);
@@ -449,6 +462,7 @@ function runPortfolioSimulation(startingNetMonthly, isPreservation = false) {
         remainingNetNeeded -= draw;
         yearOrdinaryGross += draw;
         currentYearData.netWithdrawn += draw;
+        currentYearData.drawPreTax += draw;
       }
       else if (bucket === 'roth' && balR > 0) {
         const draw = Math.min(balR, remainingNetNeeded);
@@ -456,6 +470,7 @@ function runPortfolioSimulation(startingNetMonthly, isPreservation = false) {
         remainingNetNeeded -= draw;
         yearRothGross += draw;
         currentYearData.netWithdrawn += draw;
+        currentYearData.drawRoth += draw;
       }
     }
     
@@ -469,12 +484,68 @@ function runPortfolioSimulation(startingNetMonthly, isPreservation = false) {
     const isFinalMonth = (m === M);
     
     if (isYearEnd || isFinalMonth) {
-      const brokerageGains = yearBrokerageGross * (1 - state.brokerageCostBasis / 100);
-      const taxBill = calculateTaxes(yearOrdinaryGross, brokerageGains, currentAge, state.filingStatus, state.stateResidence);
+      const baseBrokerageGains = yearBrokerageGross * (1 - state.brokerageCostBasis / 100);
+      
+      let taxBill = null;
+      let lastTotalTaxes = 0;
+      
+      // Temporary variables for convergence
+      let tempDrawB = 0;
+      let tempDrawP = 0;
+      let tempDrawR = 0;
+      
+      // Iterate to solve the "tax on tax" / "gross-up" feedback loop where withdrawals
+      // to pay taxes from Pre-Tax/Brokerage increase taxable ordinary income & capital gains.
+      for (let iter = 0; iter < 15; iter++) {
+        const currentOrdGross = yearOrdinaryGross + tempDrawP;
+        const currentCapGains = baseBrokerageGains + tempDrawB * (1 - state.brokerageCostBasis / 100);
+        
+        taxBill = calculateTaxes(currentOrdGross, currentCapGains, currentAge, state.filingStatus, state.stateResidence);
+        
+        if (Math.abs(taxBill.totalTaxes - lastTotalTaxes) < 0.1) {
+          break;
+        }
+        
+        lastTotalTaxes = taxBill.totalTaxes;
+        
+        let remainingTaxOwed = taxBill.totalTaxes;
+        let testBalB = balB;
+        let testBalP = balP;
+        let testBalR = balR;
+        
+        tempDrawB = 0;
+        tempDrawP = 0;
+        tempDrawR = 0;
+        
+        for (let bucket of sequence) {
+          if (remainingTaxOwed <= 0) break;
+          
+          if (bucket === 'brokerage' && testBalB > 0) {
+            const draw = Math.min(testBalB, remainingTaxOwed);
+            testBalB -= draw;
+            remainingTaxOwed -= draw;
+            tempDrawB += draw;
+          }
+          else if (bucket === 'pretax' && testBalP > 0) {
+            const draw = Math.min(testBalP, remainingTaxOwed);
+            testBalP -= draw;
+            remainingTaxOwed -= draw;
+            tempDrawP += draw;
+          }
+          else if (bucket === 'roth' && testBalR > 0) {
+            const draw = Math.min(testBalR, remainingTaxOwed);
+            testBalR -= draw;
+            remainingTaxOwed -= draw;
+            tempDrawR += draw;
+          }
+        }
+      }
       
       let remainingTaxOwed = taxBill.totalTaxes;
       currentYearData.taxesPaid += taxBill.totalTaxes;
       currentYearData.fedTax += taxBill.fedTax;
+      currentYearData.fedOrdTax += taxBill.fedOrdTax;
+      currentYearData.fedCapGainsTax += taxBill.fedCapGainsTax;
       currentYearData.stateTax += taxBill.stateTax;
       currentYearData.niitTax += taxBill.niitTax;
       currentYearData.penalty += taxBill.penalty;
@@ -487,16 +558,19 @@ function runPortfolioSimulation(startingNetMonthly, isPreservation = false) {
           const draw = Math.min(balB, remainingTaxOwed);
           balB -= draw;
           remainingTaxOwed -= draw;
+          currentYearData.drawBrokerage += draw;
         }
         else if (bucket === 'pretax' && balP > 0) {
           const draw = Math.min(balP, remainingTaxOwed);
           balP -= draw;
           remainingTaxOwed -= draw;
+          currentYearData.drawPreTax += draw;
         }
         else if (bucket === 'roth' && balR > 0) {
           const draw = Math.min(balR, remainingTaxOwed);
           balR -= draw;
           remainingTaxOwed -= draw;
+          currentYearData.drawRoth += draw;
         }
       }
       
@@ -645,8 +719,61 @@ function simulateVolatilityScenario(startingNetMonthly, scenarioType) {
     const isFinalMonth = (m === M);
     
     if (isYearEnd || isFinalMonth) {
-      const brokerageGains = yearBrokerageGross * (1 - state.brokerageCostBasis / 100);
-      const taxBill = calculateTaxes(yearOrdinaryGross, brokerageGains, currentAge, state.filingStatus, state.stateResidence);
+      const baseBrokerageGains = yearBrokerageGross * (1 - state.brokerageCostBasis / 100);
+      
+      let taxBill = null;
+      let lastTotalTaxes = 0;
+      
+      // Temporary variables for convergence
+      let tempDrawB = 0;
+      let tempDrawP = 0;
+      let tempDrawR = 0;
+      
+      // Iterate to solve the "tax on tax" feedback loop for volatility scenario
+      for (let iter = 0; iter < 15; iter++) {
+        const currentOrdGross = yearOrdinaryGross + tempDrawP;
+        const currentCapGains = baseBrokerageGains + tempDrawB * (1 - state.brokerageCostBasis / 100);
+        
+        taxBill = calculateTaxes(currentOrdGross, currentCapGains, currentAge, state.filingStatus, state.stateResidence);
+        
+        if (Math.abs(taxBill.totalTaxes - lastTotalTaxes) < 0.1) {
+          break;
+        }
+        
+        lastTotalTaxes = taxBill.totalTaxes;
+        
+        let remainingTaxOwed = taxBill.totalTaxes;
+        let testBalB = balB;
+        let testBalP = balP;
+        let testBalR = balR;
+        
+        tempDrawB = 0;
+        tempDrawP = 0;
+        tempDrawR = 0;
+        
+        for (let bucket of sequence) {
+          if (remainingTaxOwed <= 0) break;
+          
+          if (bucket === 'brokerage' && testBalB > 0) {
+            const draw = Math.min(testBalB, remainingTaxOwed);
+            testBalB -= draw;
+            remainingTaxOwed -= draw;
+            tempDrawB += draw;
+          }
+          else if (bucket === 'pretax' && testBalP > 0) {
+            const draw = Math.min(testBalP, remainingTaxOwed);
+            testBalP -= draw;
+            remainingTaxOwed -= draw;
+            tempDrawP += draw;
+          }
+          else if (bucket === 'roth' && testBalR > 0) {
+            const draw = Math.min(testBalR, remainingTaxOwed);
+            testBalR -= draw;
+            remainingTaxOwed -= draw;
+            tempDrawR += draw;
+          }
+        }
+      }
       
       let remainingTaxOwed = taxBill.totalTaxes;
       
@@ -729,8 +856,8 @@ function updateDashboard() {
   // Calculate Year 1 effective tax rates to sync back into manual rate inputs for summaries
   if (state.stateResidence !== 'Custom' && result.schedule.length > 0) {
     const y1 = result.schedule[0];
-    const ordGross = Math.max(0, y1.begPreTax - y1.endPreTax);
-    const capGross = Math.max(0, y1.begBrokerage - y1.endBrokerage);
+    const ordGross = y1.drawPreTax;
+    const capGross = y1.drawBrokerage;
     const capGains = capGross * (1 - state.brokerageCostBasis / 100);
     
     const taxBill = calculateTaxes(ordGross, capGains, state.clientAge, state.filingStatus, state.stateResidence);
@@ -803,7 +930,11 @@ function updateDashboard() {
       <td>${formatCurrency(row.endRoth)}</td>
       <td style="color: var(--accent-emerald); font-weight: 600;">${formatCurrency(row.netWithdrawn)}</td>
       <td>${formatCurrency(row.grossWithdrawn)}</td>
-      <td style="color: ${row.fedTax > 0 ? 'var(--accent-rose)' : 'var(--text-muted)'};">${formatCurrency(row.fedTax)}</td>
+      <td style="color: var(--accent-silver); font-weight: 500;">${formatCurrency(row.drawBrokerage)}</td>
+      <td style="color: var(--accent-gold); font-weight: 500;">${formatCurrency(row.drawPreTax)}</td>
+      <td style="color: var(--accent-emerald); font-weight: 500;">${formatCurrency(row.drawRoth)}</td>
+      <td style="color: ${row.fedOrdTax > 0 ? 'var(--accent-rose)' : 'var(--text-muted)'};">${formatCurrency(row.fedOrdTax)}</td>
+      <td style="color: ${row.fedCapGainsTax > 0 ? 'var(--accent-rose)' : 'var(--text-muted)'};">${formatCurrency(row.fedCapGainsTax)}</td>
       <td style="color: ${row.stateTax > 0 ? 'var(--accent-rose)' : 'var(--text-muted)'};">${formatCurrency(row.stateTax)}</td>
       <td style="color: ${row.niitTax > 0 ? 'var(--accent-rose)' : 'var(--text-muted)'};">${formatCurrency(row.niitTax)}</td>
       <td style="color: ${row.penalty > 0 ? 'var(--accent-rose)' : 'var(--text-muted)'};">${formatCurrency(row.penalty)}</td>
@@ -814,10 +945,49 @@ function updateDashboard() {
   
   // Refresh Stacked Decumulation Area Chart
   renderChart(result.schedule);
+  renderCashflowChart(result.schedule);
 }
 
 // Render dynamic, multi-bucket stacked area chart using Chart.js
 function renderChart(schedule) {
+  if (typeof Chart === 'undefined') {
+    console.warn("Chart.js is not loaded yet. Skipping trajectory chart rendering.");
+    const container = els.chartCanvas?.parentElement;
+    if (container && !container.querySelector('.chart-fallback-msg')) {
+      const fallback = document.createElement('div');
+      fallback.className = 'chart-fallback-msg';
+      fallback.style.position = 'absolute';
+      fallback.style.inset = '0';
+      fallback.style.display = 'flex';
+      fallback.style.flexDirection = 'column';
+      fallback.style.alignItems = 'center';
+      fallback.style.justifyContent = 'center';
+      fallback.style.color = 'var(--text-secondary)';
+      fallback.style.fontSize = '0.9rem';
+      fallback.style.background = 'var(--bg-surface-elevated)';
+      fallback.style.borderRadius = '12px';
+      fallback.style.border = '1px dashed var(--border-color)';
+      fallback.style.padding = '1.5rem';
+      fallback.style.textAlign = 'center';
+      fallback.style.gap = '0.5rem';
+      fallback.innerHTML = `
+        <svg viewBox="0 0 24 24" width="24" height="24" fill="var(--accent-indigo)" style="opacity: 0.8;"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-1 16H6c-.55 0-1-.45-1-1V6c0-.55.45-1 1-1h12c.55 0 1 .45 1 1v12c0 .55-.45 1-1 1zm-7.5-6.5h-2v3c0 .55-.45 1-1 1s-1-.45-1-1v-4c0-.55.45-1 1-1h3c.55 0 1 .45 1 1s-.45 1-1 1zm4.5 1h-2v1.5h2c.55 0 1 .45 1 1s-.45 1-1 1h-3c-.55 0-1-.45-1-1v-4c0-.55.45-1 1-1h3c.55 0 1 .45 1 1s-.45 1-1 1z"/></svg>
+        <span>Chart.js did not load. Please check your network or refresh the page.</span>
+      `;
+      container.appendChild(fallback);
+    }
+    return;
+  }
+
+  // Remove fallback message if Chart.js is successfully loaded
+  const container = els.chartCanvas?.parentElement;
+  if (container) {
+    const fallback = container.querySelector('.chart-fallback-msg');
+    if (fallback) {
+      fallback.remove();
+    }
+  }
+
   const xLabels = schedule.map(row => `Age ${row.age} (Yr ${row.year})`);
   
   // Extract individual balances for stacked-area mapping
@@ -952,17 +1122,267 @@ function renderChart(schedule) {
   });
 }
 
+// Render dynamic stacked bar chart of annual net cashflow vs tax drag
+function renderCashflowChart(schedule) {
+  if (typeof Chart === 'undefined') {
+    console.warn("Chart.js is not loaded yet. Skipping cashflow chart rendering.");
+    const container = els.cashflowCanvas?.parentElement;
+    if (container && !container.querySelector('.chart-fallback-msg')) {
+      const fallback = document.createElement('div');
+      fallback.className = 'chart-fallback-msg';
+      fallback.style.position = 'absolute';
+      fallback.style.inset = '0';
+      fallback.style.display = 'flex';
+      fallback.style.flexDirection = 'column';
+      fallback.style.alignItems = 'center';
+      fallback.style.justifyContent = 'center';
+      fallback.style.color = 'var(--text-secondary)';
+      fallback.style.fontSize = '0.9rem';
+      fallback.style.background = 'var(--bg-surface-elevated)';
+      fallback.style.borderRadius = '12px';
+      fallback.style.border = '1px dashed var(--border-color)';
+      fallback.style.padding = '1.5rem';
+      fallback.style.textAlign = 'center';
+      fallback.style.gap = '0.5rem';
+      fallback.innerHTML = `
+        <svg viewBox="0 0 24 24" width="24" height="24" fill="var(--accent-indigo)" style="opacity: 0.8;"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-1 16H6c-.55 0-1-.45-1-1V6c0-.55.45-1 1-1h12c.55 0 1 .45 1 1v12c0 .55-.45 1-1 1zm-7.5-6.5h-2v3c0 .55-.45 1-1 1s-1-.45-1-1v-4c0-.55.45-1 1-1h3c.55 0 1 .45 1 1s-.45 1-1 1zm4.5 1h-2v1.5h2c.55 0 1 .45 1 1s-.45 1-1 1h-3c-.55 0-1-.45-1-1v-4c0-.55.45-1 1-1h3c.55 0 1 .45 1 1s-.45 1-1 1z"/></svg>
+        <span>Chart.js did not load. Please check your network or refresh the page.</span>
+      `;
+      container.appendChild(fallback);
+    }
+    return;
+  }
+
+  // Remove fallback message if Chart.js is successfully loaded
+  const container = els.cashflowCanvas?.parentElement;
+  if (container) {
+    const fallback = container.querySelector('.chart-fallback-msg');
+    if (fallback) {
+      fallback.remove();
+    }
+  }
+
+  const xLabels = schedule.map(row => `Age ${row.age} (Yr ${row.year})`);
+  
+  const brokerageDrawData = schedule.map(row => row.drawBrokerage);
+  const pretaxDrawData = schedule.map(row => row.drawPreTax);
+  const rothDrawData = schedule.map(row => row.drawRoth);
+  const netSpendingData = schedule.map(row => row.netWithdrawn);
+  const fedOrdTaxData = schedule.map(row => row.fedOrdTax);
+  const fedCapGainsTaxData = schedule.map(row => row.fedCapGainsTax);
+  const stateTaxData = schedule.map(row => row.stateTax);
+  const niitTaxData = schedule.map(row => row.niitTax);
+  const penaltyData = schedule.map(row => row.penalty);
+  
+  if (cashflowChart) {
+    cashflowChart.destroy();
+  }
+  
+  const ctx = els.cashflowCanvas.getContext('2d');
+  
+  const brokerageFill = ctx.createLinearGradient(0, 0, 0, 350);
+  brokerageFill.addColorStop(0, 'rgba(148, 163, 184, 0.85)'); // Silver
+  brokerageFill.addColorStop(1, 'rgba(148, 163, 184, 0.3)');
+  
+  const pretaxFill = ctx.createLinearGradient(0, 0, 0, 350);
+  pretaxFill.addColorStop(0, 'rgba(245, 158, 11, 0.85)');  // Gold
+  pretaxFill.addColorStop(1, 'rgba(245, 158, 11, 0.3)');
+  
+  const rothFill = ctx.createLinearGradient(0, 0, 0, 350);
+  rothFill.addColorStop(0, 'rgba(16, 185, 129, 0.85)');  // Emerald
+  rothFill.addColorStop(1, 'rgba(16, 185, 129, 0.3)');
+
+  const netSpendingFill = ctx.createLinearGradient(0, 0, 0, 350);
+  netSpendingFill.addColorStop(0, 'rgba(20, 184, 166, 0.85)'); // Teal
+  netSpendingFill.addColorStop(1, 'rgba(16, 185, 129, 0.3)');
+
+  const fedOrdFill = ctx.createLinearGradient(0, 0, 0, 350);
+  fedOrdFill.addColorStop(0, 'rgba(244, 63, 94, 0.85)'); // Rose
+  fedOrdFill.addColorStop(1, 'rgba(244, 63, 94, 0.3)');
+
+  const fedCapGainsFill = ctx.createLinearGradient(0, 0, 0, 350);
+  fedCapGainsFill.addColorStop(0, 'rgba(168, 85, 247, 0.85)'); // Purple
+  fedCapGainsFill.addColorStop(1, 'rgba(168, 85, 247, 0.3)');
+
+  const stateTaxFill = ctx.createLinearGradient(0, 0, 0, 350);
+  stateTaxFill.addColorStop(0, 'rgba(99, 102, 241, 0.85)'); // Indigo
+  stateTaxFill.addColorStop(1, 'rgba(99, 102, 241, 0.3)');
+
+  const niitTaxFill = ctx.createLinearGradient(0, 0, 0, 350);
+  niitTaxFill.addColorStop(0, 'rgba(236, 72, 153, 0.85)'); // Pink
+  niitTaxFill.addColorStop(1, 'rgba(236, 72, 153, 0.3)');
+
+  const penaltyFill = ctx.createLinearGradient(0, 0, 0, 350);
+  penaltyFill.addColorStop(0, 'rgba(249, 115, 22, 0.85)'); // Orange
+  penaltyFill.addColorStop(1, 'rgba(249, 115, 22, 0.3)');
+  
+  cashflowChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: xLabels,
+      datasets: [
+        // Sources Stack
+        {
+          label: 'Brokerage Draw ($)',
+          data: brokerageDrawData,
+          backgroundColor: brokerageFill,
+          borderColor: '#94a3b8',
+          borderWidth: 1.5,
+          borderRadius: 4,
+          stack: 'sources'
+        },
+        {
+          label: 'Pre-Tax Draw ($)',
+          data: pretaxDrawData,
+          backgroundColor: pretaxFill,
+          borderColor: '#f59e0b',
+          borderWidth: 1.5,
+          borderRadius: 4,
+          stack: 'sources'
+        },
+        {
+          label: 'Roth Draw ($)',
+          data: rothDrawData,
+          backgroundColor: rothFill,
+          borderColor: '#10b981',
+          borderWidth: 1.5,
+          borderRadius: 4,
+          stack: 'sources'
+        },
+        // Uses Stack
+        {
+          label: 'Net Spending ($)',
+          data: netSpendingData,
+          backgroundColor: netSpendingFill,
+          borderColor: '#14b8a6',
+          borderWidth: 1.5,
+          borderRadius: 4,
+          stack: 'uses'
+        },
+        {
+          label: 'Fed Income Tax ($)',
+          data: fedOrdTaxData,
+          backgroundColor: fedOrdFill,
+          borderColor: '#f43f5e',
+          borderWidth: 1.5,
+          borderRadius: 4,
+          stack: 'uses'
+        },
+        {
+          label: 'Fed CapGains Tax ($)',
+          data: fedCapGainsTaxData,
+          backgroundColor: fedCapGainsFill,
+          borderColor: '#a855f7',
+          borderWidth: 1.5,
+          borderRadius: 4,
+          stack: 'uses'
+        },
+        {
+          label: 'State Tax ($)',
+          data: stateTaxData,
+          backgroundColor: stateTaxFill,
+          borderColor: '#6366f1',
+          borderWidth: 1.5,
+          borderRadius: 4,
+          stack: 'uses'
+        },
+        {
+          label: 'NIIT ($)',
+          data: niitTaxData,
+          backgroundColor: niitTaxFill,
+          borderColor: '#ec4899',
+          borderWidth: 1.5,
+          borderRadius: 4,
+          stack: 'uses'
+        },
+        {
+          label: 'Penalty ($)',
+          data: penaltyData,
+          backgroundColor: penaltyFill,
+          borderColor: '#f97316',
+          borderWidth: 1.5,
+          borderRadius: 4,
+          stack: 'uses'
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      interaction: {
+        mode: 'index',
+        intersect: false,
+      },
+      plugins: {
+        legend: {
+          position: 'top',
+          labels: {
+            color: '#f8fafc',
+            font: { family: 'Inter', size: 10, weight: '600' },
+            boxWidth: 12
+          }
+        },
+        tooltip: {
+          padding: 12,
+          backgroundColor: '#0f172a',
+          titleColor: '#f8fafc',
+          titleFont: { family: 'Outfit', size: 13, weight: '700' },
+          bodyColor: '#e2e8f0',
+          bodyFont: { family: 'Inter', size: 12 },
+          borderColor: '#334155',
+          borderWidth: 1,
+          callbacks: {
+            label: function(context) {
+              let label = context.dataset.label || '';
+              if (label) {
+                label = label.split(' ($)')[0] + ': ';
+              }
+              if (context.parsed.y !== null) {
+                label += formatCurrency(context.parsed.y);
+              }
+              return label;
+            }
+          }
+        }
+      },
+      scales: {
+        x: {
+          stacked: true,
+          grid: { color: 'rgba(51, 65, 85, 0.25)', drawBorder: false },
+          ticks: { color: '#94a3b8', font: { family: 'Inter', size: 10 } }
+        },
+        y: {
+          stacked: true,
+          grid: { color: 'rgba(51, 65, 85, 0.35)', drawBorder: false },
+          ticks: {
+            color: '#94a3b8',
+            font: { family: 'Inter', size: 10 },
+            callback: function(value) {
+              if (value >= 1e6) {
+                return '$' + (value / 1e6).toFixed(1) + 'M';
+              } else if (value >= 1e3) {
+                return '$' + (value / 1e3).toFixed(0) + 'k';
+              }
+              return '$' + value;
+            }
+          }
+        }
+      }
+    }
+  });
+}
+
 // Data Export Utilities
 function convertToCSV() {
   const solvedNetMonthly = solveSustainableNetMonthly();
   const isPreservation = state.strategy === 'preservation';
   const result = runPortfolioSimulation(solvedNetMonthly, isPreservation);
   
-  let csv = 'Year,Age,Brokerage Balance ($),Pre-Tax Balance ($),Roth Balance ($),Net Withdrawal ($),Gross Withdrawal ($),Federal Tax ($),State Tax ($),NIIT ($),Penalty ($),Total Tax and Penalties ($)\r\n';
+  let csv = 'Year,Age,Brokerage Balance ($),Pre-Tax Balance ($),Roth Balance ($),Net Withdrawal ($),Gross Withdrawal ($),Brokerage Draw ($),Pre-Tax Draw ($),Roth Draw ($),Federal Income Tax ($),Federal CapGains Tax ($),State Tax ($),NIIT ($),Penalty ($),Total Tax and Penalties ($)\r\n';
   
   result.schedule.forEach(row => {
     const taxFees = row.taxesPaid;
-    csv += `${row.year},${row.age},${row.endBrokerage.toFixed(2)},${row.endPreTax.toFixed(2)},${row.endRoth.toFixed(2)},${row.netWithdrawn.toFixed(2)},${row.grossWithdrawn.toFixed(2)},${row.fedTax.toFixed(2)},${row.stateTax.toFixed(2)},${row.niitTax.toFixed(2)},${row.penalty.toFixed(2)},${taxFees.toFixed(2)}\r\n`;
+    csv += `${row.year},${row.age},${row.endBrokerage.toFixed(2)},${row.endPreTax.toFixed(2)},${row.endRoth.toFixed(2)},${row.netWithdrawn.toFixed(2)},${row.grossWithdrawn.toFixed(2)},${row.drawBrokerage.toFixed(2)},${row.drawPreTax.toFixed(2)},${row.drawRoth.toFixed(2)},${row.fedOrdTax.toFixed(2)},${row.fedCapGainsTax.toFixed(2)},${row.stateTax.toFixed(2)},${row.niitTax.toFixed(2)},${row.penalty.toFixed(2)},${taxFees.toFixed(2)}\r\n`;
   });
   
   return csv;
@@ -1133,8 +1553,9 @@ function init() {
   updateDashboard();
 }
 
-// Auto-run on load
-document.addEventListener('DOMContentLoaded', init);
-if (document.readyState === 'interactive' || document.readyState === 'complete') {
+// Robust Auto-run lifecycle to prevent double init() execution
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', init);
+} else {
   init();
 }

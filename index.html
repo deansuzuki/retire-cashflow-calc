@@ -30,7 +30,7 @@
         </div>
         <div class="brand-text">
           <h1>Tax-Efficient Decumulation Engine</h1>
-          <p>Multi-Bucket Distribution & Penalty Modeling for Certified Wealth Advisors</p>
+          <p>Multi-Bucket Distribution & Penalty Modeling for Fun Purposes only. Please consult a professional for guidance.</p>
         </div>
       </div>
       <div>
@@ -58,9 +58,9 @@
           </div>
           <div class="input-wrapper">
             <span class="input-currency-symbol">$</span>
-            <input type="text" id="brokerage-text" class="text-input has-prefix" value="300,000" aria-label="Brokerage Assets in Dollars">
+            <input type="text" id="brokerage-text" class="text-input has-prefix" value="100,000" aria-label="Brokerage Assets in Dollars">
           </div>
-          <input type="range" id="brokerage-slider" class="slider-input" min="0" max="5000000" step="10000" value="300000" aria-label="Brokerage Assets Slider" style="background: hsla(215, 16%, 47%, 0.3);">
+          <input type="range" id="brokerage-slider" class="slider-input" min="0" max="5000000" step="10000" value="100000" aria-label="Brokerage Assets Slider" style="background: hsla(215, 16%, 47%, 0.3);">
         </div>
 
         <!-- Brokerage Cost Basis (%) -->
@@ -85,9 +85,9 @@
           </div>
           <div class="input-wrapper">
             <span class="input-currency-symbol">$</span>
-            <input type="text" id="pretax-text" class="text-input has-prefix" value="500,000" aria-label="Pre-Tax Assets in Dollars">
+            <input type="text" id="pretax-text" class="text-input has-prefix" value="300,000" aria-label="Pre-Tax Assets in Dollars">
           </div>
-          <input type="range" id="pretax-slider" class="slider-input" min="0" max="5000000" step="10000" value="500000" aria-label="Pre-Tax Assets Slider">
+          <input type="range" id="pretax-slider" class="slider-input" min="0" max="5000000" step="10000" value="300000" aria-label="Pre-Tax Assets Slider">
         </div>
 
         <!-- Roth Assets -->
@@ -98,9 +98,9 @@
           </div>
           <div class="input-wrapper">
             <span class="input-currency-symbol">$</span>
-            <input type="text" id="roth-text" class="text-input has-prefix" value="200,000" aria-label="Roth Assets in Dollars">
+            <input type="text" id="roth-text" class="text-input has-prefix" value="100,000" aria-label="Roth Assets in Dollars">
           </div>
-          <input type="range" id="roth-slider" class="slider-input" min="0" max="5000000" step="10000" value="200000" aria-label="Roth Assets Slider">
+          <input type="range" id="roth-slider" class="slider-input" min="0" max="5000000" step="10000" value="100000" aria-label="Roth Assets Slider">
         </div>
 
         <!-- Client Current Age -->
@@ -347,6 +347,19 @@
           </div>
         </section>
 
+        <!-- Annual Cashflow & Tax Drag Chart Block -->
+        <section class="panel">
+          <h3 class="panel-title">
+            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
+            </svg>
+            Annual Gross Cashflow & Account Draws
+          </h3>
+          <div class="chart-container">
+            <canvas id="cashflow-chart"></canvas>
+          </div>
+        </section>
+
         <!-- Sequence of Returns Risk Simulation (Advanced Advisor Tool) -->
         <section class="panel risk-panel">
           <h3 class="panel-title">
@@ -429,7 +442,11 @@
                   <th>Roth Bal ($)</th>
                   <th>Net Cash ($)</th>
                   <th>Gross Cash ($)</th>
-                  <th>Fed Tax ($)</th>
+                  <th style="color: #94a3b8; font-weight: 700;">Brokerage Draw ($)</th>
+                  <th style="color: #f59e0b; font-weight: 700;">Pre-Tax Draw ($)</th>
+                  <th style="color: #10b981; font-weight: 700;">Roth Draw ($)</th>
+                  <th>Fed Income Tax ($)</th>
+                  <th>Fed CapGains Tax ($)</th>
                   <th>State Tax ($)</th>
                   <th>NIIT ($)</th>
                   <th>Penalty ($)</th>
@@ -449,6 +466,6 @@
   </div>
 
   <!-- Application Logic -->
-  <script src="index.js"></script>
+  <script type="module" src="/index.js"></script>
 </body>
 </html>
