@@ -1026,10 +1026,8 @@ function renderChart(schedule) {
           borderWidth: 2,
           pointBackgroundColor: '#94a3b8',
           pointHoverRadius: 5,
-          fill: true,
-          backgroundColor: brokerFill,
-          tension: 0.1,
-          stack: 'assets' // Enforce stacking
+          fill: false,
+          tension: 0.1
         },
         {
           label: 'Pre-Tax (IRA/401k) ($)',
@@ -1038,10 +1036,8 @@ function renderChart(schedule) {
           borderWidth: 2,
           pointBackgroundColor: '#f59e0b',
           pointHoverRadius: 5,
-          fill: true,
-          backgroundColor: pretaxFill,
-          tension: 0.1,
-          stack: 'assets'
+          fill: false,
+          tension: 0.1
         },
         {
           label: 'Roth (Tax-Free) ($)',
@@ -1050,10 +1046,8 @@ function renderChart(schedule) {
           borderWidth: 2.5,
           pointBackgroundColor: '#10b981',
           pointHoverRadius: 6,
-          fill: true,
-          backgroundColor: rothFill,
-          tension: 0.1,
-          stack: 'assets'
+          fill: false,
+          tension: 0.1
         }
       ]
     },
@@ -1102,7 +1096,7 @@ function renderChart(schedule) {
           ticks: { color: '#94a3b8', font: { family: 'Inter', size: 10 } }
         },
         y: {
-          stacked: true,
+          stacked: false,
           grid: { color: 'rgba(51, 65, 85, 0.35)', drawBorder: false },
           ticks: {
             color: '#94a3b8',
