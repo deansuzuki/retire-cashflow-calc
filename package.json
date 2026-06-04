@@ -1,0 +1,25 @@
+{
+  "name": "cashflow-calculator",
+  "version": "1.0.0",
+  "description": "Retirement Portfolio Cashflow and Decumulation Calculator for CFPs",
+  "main": "index.html",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "keywords": [
+    "retirement",
+    "cashflow",
+    "calculator",
+    "cfp",
+    "financial-planning",
+    "decumulation",
+    "annuity"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "vite": "^5.0.0"
+  }
+}
